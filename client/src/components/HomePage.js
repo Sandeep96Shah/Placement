@@ -39,28 +39,24 @@ const HomePage = () => {
                                 <input 
                                     type="text"  
                                     name="name"
-                                    placeholder="Name"
                                     //onChange listener    
                                 />
                                 <label htmlFor="email">Email</label>
                                 <input 
                                     type="email"  
                                     name="email"
-                                    placeholder="Email"
                                     //onChange listener    
                                 />
                                 <label htmlFor="password">Password</label>
                                 <input 
                                     type="password"  
                                     name="password"
-                                    placeholder="Password"
                                     //onChange listener    
                                 />
                                 <label htmlFor="confirm_password">Confirm Password</label>
                                 <input 
                                     type="password"  
                                     name="confirm_password"
-                                    placeholder="Confirm Password"
                                     //onChange listener    
                                 />
                                 <button>Sign Up</button>
