@@ -1,4 +1,7 @@
 /* General Styling */
+*{
+  box-sizing: border-box;
+}
 body{
   margin: 0px;
   padding: 0px;
@@ -38,7 +41,7 @@ form{
   word-spacing: 5px;
   letter-spacing: 1px;
 }
-.signin{
+.signin, .signout{
   border: 1px solid black;
   font-size: 30px;
   top: 30px;
@@ -203,4 +206,71 @@ form{
 .home_btn:hover{
   background-color: blue;
   color: white;
+}
+/* Student Container */
+
+.student_body{
+  display: flex;
+}
+.student_container, .interview_container{
+  width: 50vw;
+  height: 83vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.student_div, .interview_div{
+  width: 70%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+}
+.student_header, .interview_header{
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  font-size: 35px;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+.student_list, .interview_list{
+  display: flex;
+  flex-direction: column;
+  padding: 25px 20px;
+  overflow-y: scroll;
+  height: 90%;
+}
+
+
+
+/* Student Component */
+
+.student_comp, .interview_comp{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.student_name{
+  font-size: 22px;
+}
+.detail_btn{
+  font-size: 18px;
+  border: 1px solid gray;
+  background-color: lightgray;
+  padding: 3px 7px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.detail_btn:hover{
+  color: white;
+  background-color: blue;
 }
