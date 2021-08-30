@@ -6,9 +6,9 @@ import Interview from './Interview';
 const Dashboard = () => {
     return (
         <div>
-            <div className="home_navbar">
+            <div className="dashboard_navbar">
                 <Link to="/"><p className="signout">Sign Out</p></Link>
-                <div className="home_header"><p>Welcome Teacher</p></div>
+                <div className="dashboard_header"><p>Welcome Teacher</p></div>
             </div>
             <div className="student_body">
                 <div className="student_container">
