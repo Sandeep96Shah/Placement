@@ -24,7 +24,7 @@ module.exports.create = async (req,res) => {
                     webD:req.body.webD,
                 },
                 {
-                    dsa:req.body.dsa,
+                    react:req.body.react,
                 }
             ],
             interviews:[
@@ -52,13 +52,15 @@ module.exports.create = async (req,res) => {
 }
 
 module.exports.update = async (req, res) => {
+    console.log("student update", req.body);
     //here passing the eamil to add the interview in the specified student.
     try{
         const createStudent = await Student.findOne({email:req.body.email});
         const interview = {
             company_name:req.body.company_name,
             date_of_interview:req.body.date_of_interview,
-            result:req.body.result,
+            // result:req.body.result,
+            result:"Didn't Attend",
         }
         createStudent.interviews.push(interview);
         createStudent.save();
@@ -74,19 +76,23 @@ module.exports.update = async (req, res) => {
                 students:[
                     {
                         student:createStudent._id,
-                        result:req.body.result,
+                        // result:req.body.result,
+                        result:"Didn't Attend",
                     }
                 ]
             })
         }else{
             check.students.push({
                 student:createStudent._id,
-                result:req.body.result,
+                // result:req.body.result,
+                result:"Didn't Attend",
             })
         }
 
         return res.status(200).json({
             message:"Interview added successfully in the student document!",
+            interview,
+            email:req.body.email,
         })
     }catch(err){
         console.log("error while adding the interview into student document",err);

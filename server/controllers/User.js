@@ -1,4 +1,6 @@
 const User = require('../models/User');
+const Student = require('../models/Student');
+const Interview = require('../models/Interviews');
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
@@ -80,11 +82,17 @@ module.exports.signIn = async (req, res) => {
         }
         let isValid = await comparePassword(req.body.password,user.password);
         if(isValid){
+            const students = await Student.find({});
+            const interviews = await Interview.find({}).populate('students.student', 'name');
             return res.status(200).json({
                 message:"signed_in done",
                 data: {
                     token: jwt.sign(user.toJSON(), "Iis2G23kZI2Fnfi0wXTLDgxKXk0cIozE", { expiresIn: "1000000" }),
                   },
+                  success:true,
+                  students,
+                  interviews,
+                  user,
             });
         }
         return res.status(400).json({

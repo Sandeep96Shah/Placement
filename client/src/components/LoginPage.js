@@ -1,8 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import '../index.css';
+import { user } from '../actions/index';
 
-export default function LoginPage() {
+const LoginPage = (props) => {
+
+    const [ email, setEmail ] = useState("");
+    const [ password, setPassword ] = useState("");
+    
+    const history = useHistory();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.dispatch(user(email,password, history));
+    }
     return (
         <div>
             <div className="home_navbar">
@@ -19,14 +31,18 @@ export default function LoginPage() {
                     <input 
                         type="email"
                         name="email"
+                        value={email}
+                        onChange={ (e) => setEmail(e.target.value) }
                     />
                     <label htmlFor="password">Password</label>
                     <input 
                         type="password"
                         name="password"
+                        value={password}
+                        onChange={ (e) => setPassword(e.target.value) }
                     />
                     <div className="signin_btn">
-                        <button>SignIn</button>
+                        <button onClick={ (e) => handleSubmit(e) }>SignIn</button>
                     </div>
                 </form>
             </div>
@@ -34,3 +50,11 @@ export default function LoginPage() {
         </div>
     )
 }
+function mapStateToProps(state) {
+    return {
+      student:state.student,
+      interview:state.interview,
+    };
+}
+
+export default connect(mapStateToProps)(LoginPage);
