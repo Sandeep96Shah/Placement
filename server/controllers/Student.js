@@ -1,6 +1,7 @@
 const Student = require('../models/Student');
 const Interviews = require('../models/Interviews');
 module.exports.create = async (req,res) => {
+    console.log("req.body add student", req.body);
     try{
         const check = await Student.findOne({email:req.body.email});
         console.log("check", check);
@@ -31,7 +32,8 @@ module.exports.create = async (req,res) => {
                 {
                     company_name:req.body.company_name,
                     date_of_interview:req.body.date_of_interview,
-                    result:req.body.result,
+                    // result:req.body.result,
+                    result:"Didn't Attend",
                     //how to set the id given by db to the id of the interview document just to make it easy else no need
                 }
             ]

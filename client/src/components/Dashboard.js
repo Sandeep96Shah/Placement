@@ -27,7 +27,10 @@ const Dashboard = (props) => {
             <div className="student_body">
                 <div className="student_container">
                     <div className="student_div"> 
-                        <div className="student_header"><p>Students</p></div>
+                        <div className="student_header">
+                            <p>Students</p>
+                            <Link to='/dashboard/addStudent'><p className="student_header_add">ADD</p></Link>
+                        </div>
                         <div className="student_list">
                             {
                                 students.map((student) => <Student 
@@ -46,7 +49,10 @@ const Dashboard = (props) => {
                 </div>
                 <div className="interview_container">
                     <div className="interview_div"> 
-                        <div className="interview_header"><p>Interviews</p></div>
+                        <div className="interview_header">
+                            <p>Interviews</p>
+                            <Link to='/dashboard/addInterview'><p className="interview_header_add">ADD</p></Link>
+                        </div>
                         <div className="interview_list">
                             {
                                 interviews.map((interview) => <Interview 

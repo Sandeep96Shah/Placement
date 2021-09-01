@@ -151,17 +151,64 @@ export function updateStudent(data, email){
     }
 }
 
+export function addInterview(company_name, date_of_interview, history){
+    return (dispatch)=>{
+        const url = APIUrls.addInterview();
+        fetch(url, {
+            method:'POST',
+            mode:"cors",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
+            },
+            body : getFormBody({ company_name, date_of_interview }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("data add interview",data.interview);
+            dispatch(add_interview(data.interview));
+            history.push('/dashboard');
+        })
+        .catch((err)=>{
+            console.log("error",err);
+        })
+    }
+}
+
 export function add_interview(data){
     return {
         type:ADD_INTERVIEW,
         payload:data,
     }
 }
-//do the fetching part in another action and then call the above action
+
+export function addStudent(name, email, batch, college, status, dsa, webD, react, company_name, date_of_interview, history){
+    return (dispatch)=>{
+        const url = APIUrls.addStudent();
+        fetch(url, {
+            method:'POST',
+            mode:"cors",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
+            },
+            body : getFormBody({name, email, batch, college, status, dsa, webD, react, company_name, date_of_interview }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("data add interview",data);
+            dispatch(add_student(data.student));
+            history.push('/dashboard');
+        })
+        .catch((err)=>{
+            console.log("error",err);
+        })
+    }
+}
+
 export function add_student(data){
     return {
         type:ADD_STUDENT,
         payload:data,
     }
 }
-//do the fetching part in another action and then call the above action

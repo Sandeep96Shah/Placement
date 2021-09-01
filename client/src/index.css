@@ -30,6 +30,10 @@ li{
   margin: 0px;
   padding: 0px;
 }
+Link{
+  margin: 0px;
+  padding: 0px;
+}
 /* HomePage Navbar */
 .home_navbar, .dashboard_navbar, .sdp_navbar, .idp_navbar{
   height: 100px;
@@ -247,6 +251,26 @@ li{
   background-color: lightgray;
   font-size: 35px;
   box-shadow: 0px 15px 10px -15px #111;
+  position: relative;
+}
+.student_header_add, .interview_header_add{
+  position: absolute;
+  right: 20px;
+  background-color: gray;
+  font-size: 20px;
+  padding: 3px 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+.student_header_add:hover{
+  background-color: blue;
+  color: white;
+}
+.interview_header_add:hover{
+  background-color: blue;
+  color: white;
 }
 .student_list, .interview_list, .idp_list{
   display: flex;
@@ -346,6 +370,9 @@ li{
   width: 100%;
   margin-top: 10px;
 }
+#interview_form_student {
+  width: 100%;
+}
 .interview_form_p{
   border: 1px solid gray;
   background-color: gray;
@@ -393,4 +420,81 @@ li{
   justify-content: center;
   width: 100vw;
   align-items: center;
+}
+.add_interview{
+  width: 100vw;
+  height: 83vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add_student_outer{
+  width: 100vw;
+  height: 83vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add_student{
+  width: 60%;
+  border: 2px solid gray;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  overflow-y: scroll;
+}
+.add_student form{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  padding: 20px 10px;
+}
+.add_student form label{
+  font-size: 30px;
+  margin-bottom: 3px;
+}
+.add_student form input{
+  height: 30px;
+  outline: none;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+.add_student form select{
+  height: 30px;
+  outline: none;
+  font-size: 20px;
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+.add_student form button{
+  height: 37px;
+  width: 100px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.add_student form button:hover{
+  background-color: blue;
+  color: white;
+}
+.add_student form ul{
+  padding-left: 60px;
+}
+.add_student form ul li{
+  width: 45%;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add_student form ul li input{
+  width: 50%;
+  height: 25px;
 }
