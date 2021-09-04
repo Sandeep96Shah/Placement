@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import  jwt_decode from 'jwt-decode'; 
 import { connect } from 'react-redux';
 import '../index.css';
 import { signup } from '../actions';
@@ -10,7 +11,14 @@ const HomePage = (props) => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ confirmPpassword, setConfirmPassword ] = useState("");
+    
     const history = useHistory();
+    const token = localStorage.getItem('token');
+    if(token){
+    const user = jwt_decode(token);
+    console.log("user", user);
+    history.push('/dashboard');
+    }
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -27,11 +35,9 @@ const HomePage = (props) => {
                 <div className="quote_container">
                     <div className="quote">
                         <p>
-                        There are always two sides to the coins. 
-                        Behind every successful person, there are 
-                        some teachers who always trust them. They 
-                        encourage them and motivate them. Teaching 
-                        is not a just profession but a great responsibility.
+                            Teaching isnot about information. It's about
+                            having an honest intellectual relationship 
+                            with your students.
                         </p>
                     </div>
                     <div className="quote">

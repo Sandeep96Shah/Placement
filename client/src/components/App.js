@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Switch, Route, useHistory} from "react-router-dom";
-import  jwt_decode from 'jwt-decode'; 
+import React from 'react';
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
@@ -13,15 +12,7 @@ import AddStudent from './AddStudent';
  const App = (props) => {
 
   //same problem only url changes and not the page!
-  const history = useHistory();
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if(token){
-      const user = jwt_decode(token);
-      console.log("user", user);
-      history.push({pathname:'/dashboard', state:{user,} });
-    }
-  },[]);
+ 
   return (
     <div>
         <Switch>

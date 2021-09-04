@@ -56,9 +56,9 @@ const Dashboard = (props) => {
                         <div className="interview_list">
                             {
                                 interviews.map((interview) => <Interview 
-                                                                name={interview.company_name} 
-                                                                key={interview._id}
-                                                                students={interview.students}
+                                                                name={interview?.company_name} 
+                                                                key={interview?._id}
+                                                                students={interview?.students}
                                                                 />)
                             }
                         </div>
