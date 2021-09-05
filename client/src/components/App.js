@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { connect } from 'react-redux';
-import HomePage from './HomePage';
-import LoginPage from './LoginPage';
-import Dashboard from './Dashboard';
-import StudentDetailPage from './StudentDetailPage';
-import InterviewDetailPage from './InterviewDetailPage';
-import AddInterview from './AddInterview';
-import AddStudent from './AddStudent';
+import HomePage from '../pages/HomePage';
+import LoginPage from '../pages/LoginPage';
+import Dashboard from '../pages/Dashboard';
+import StudentDetailPage from '../pages/StudentDetailPage';
+import InterviewDetailPage from '../pages/InterviewDetailPage';
+import AddInterview from '../pages/AddInterview';
+import AddStudent from '../pages/AddStudent';
 
  const App = (props) => {
 

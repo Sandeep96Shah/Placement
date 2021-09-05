@@ -8,8 +8,7 @@ router.use('/interview', passport.authenticate('jwt', {session: false}), require
 
 router.use('/user', require('./user'));
 
-router.get('/', (req,res) => {
-    return res.send('<h1>Welcome Dear!!!!</h1>');
-})
+router.use('/external_jobs', passport.authenticate('jwt', {session: false}), require('./jobs'));
+
 
 module.exports = router;

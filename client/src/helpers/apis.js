@@ -12,4 +12,6 @@ export const APIUrls = {
     allInterview : () => `${API_ROOT}/interview/all`,
     addInterview : () => `${API_ROOT}/interview/create`,
 
+    externalJobs : () => `${API_ROOT}/external_jobs`,
+
 }

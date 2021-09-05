@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Interview from './Interview';
+import Interview from '../components/Interview';
 import { update_student } from '../actions';
 
 const StudentDetailPage = (props) => {

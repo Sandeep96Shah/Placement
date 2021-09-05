@@ -273,6 +273,11 @@ Link{
   background-color: blue;
   color: white;
 }
+.download{
+  position: absolute;
+  left: 10px;
+  top: 30px;
+}
 .student_list, .interview_list, .idp_list{
   display: flex;
   flex-direction: column;

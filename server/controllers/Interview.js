@@ -27,7 +27,7 @@ module.exports.all = async (req, res) => {
 
     try{
         const interviews = await Interviews.find({}).populate('students.student', 'name');
-        console.log("interviews", interviews);
+        //console.log("interviews", interviews);
         return res.status(200).json({
             message:"Here is the list of all the Interviews",
             interviews,

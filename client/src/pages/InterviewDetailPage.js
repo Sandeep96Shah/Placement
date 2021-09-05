@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Student from './Student';
+import Student from '../components/Student';
 
  const InterviewDetailPage = (props) => {
      console.log("interviewdetailpage", props);
