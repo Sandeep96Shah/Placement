@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Student from '../components/Student';
 import Interview from '../components/Interview';
-import { all_students, all_interviews, external_jobs } from '../actions';
+import { all_students, all_interviews } from '../actions';
 
 import { CSVLink } from'react-csv';
 
@@ -23,9 +23,9 @@ const Dashboard = (props) => {
         localStorage.removeItem('token');
     }
 
-    const handleExternalJobs = () => {
-        props.dispatch(external_jobs());
-    }
+    // const handleExternalJobs = () => {
+    //     props.dispatch(external_jobs());
+    // }
 
     const headerStudent = [
         { label : "Name", key : "name" },
@@ -79,7 +79,7 @@ const Dashboard = (props) => {
     return (
         <div>
             <div className="dashboard_navbar">
-                <p onClick={ () => handleExternalJobs() }className="external_jobs" >External Jobs</p>
+                {/* <p onClick={ () => handleExternalJobs() }className="external_jobs" >External Jobs</p> */}
                 <Link to="/"><p className="signout" onClick={ () => handleSignOut() }>Sign Out</p></Link>
                 <div className="dashboard_header"><p>Welcome Teacher</p></div>
             </div>

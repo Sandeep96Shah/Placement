@@ -214,23 +214,23 @@ export function add_student(data){
 }
 
 //correct this
-export function external_jobs(){
-    return (dispatch) => {
-        const url = APIUrls.externalJobs();
-        fetch(url, {
-            method:'GET',
-            mode:"cors",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
-            },
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log("external jobs information",data);
-        })
-        .catch((err)=>{
-            console.log("error ho gaya",err);
-        })
-    }
-}
+// export function external_jobs(){
+//     return (dispatch) => {
+//         const url = APIUrls.externalJobs();
+//         fetch(url, {
+//             method:'GET',
+//             mode:"cors",
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded',
+//                 Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
+//             },
+//         })
+//         .then((response) => response.json())
+//         .then((data) => {
+//             console.log("external jobs information",data);
+//         })
+//         .catch((err)=>{
+//             console.log("error ho gaya",err);
+//         })
+//     }
+// }

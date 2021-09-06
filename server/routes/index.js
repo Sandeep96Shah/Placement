@@ -8,7 +8,7 @@ router.use('/interview', passport.authenticate('jwt', {session: false}), require
 
 router.use('/user', require('./user'));
 
-router.use('/external_jobs', passport.authenticate('jwt', {session: false}), require('./jobs'));
+//router.use('/external_jobs', passport.authenticate('jwt', {session: false}), require('./jobs'));
 
 
 module.exports = router;

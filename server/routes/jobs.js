@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const externalJobsController = require('../controllers/Jobs');
+// const externalJobsController = require('../controllers/Jobs');
 
-router.get('/', externalJobsController.externalJobs);
+// router.get('/', externalJobsController.externalJobs);
 
-module.exports = router;
+// module.exports = router;
