@@ -79,7 +79,7 @@ const Dashboard = (props) => {
     return (
         <div>
             <div className="dashboard_navbar">
-                <p onClick={ () => handleExternalJobs() }>External Jobs</p>
+                <p onClick={ () => handleExternalJobs() }className="external_jobs" >External Jobs</p>
                 <Link to="/"><p className="signout" onClick={ () => handleSignOut() }>Sign Out</p></Link>
                 <div className="dashboard_header"><p>Welcome Teacher</p></div>
             </div>
@@ -94,6 +94,7 @@ const Dashboard = (props) => {
                         </div>
                         <div className="student_list">
                             {
+                                students.length>0 ?
                                 students.map((student) => <Student 
                                                             name={student.name} 
                                                             key={student._id}
@@ -103,7 +104,8 @@ const Dashboard = (props) => {
                                                             college={student.college}
                                                             status={student.status}
                                                             interviews={student.interviews}
-                                                            />)
+                                                            />) :
+                                <h1>Please Add Student</h1>
                             }
                         </div>
                     </div>
@@ -117,11 +119,13 @@ const Dashboard = (props) => {
                         </div>
                         <div className="interview_list">
                             {
+                                interviews.length> 0 ?
                                 interviews.map((interview) => <Interview 
                                                                 name={interview?.company_name} 
                                                                 key={interview?._id}
                                                                 students={interview?.students}
-                                                                />)
+                                                                />) :
+                                <h1>Please Add Interview</h1>
                             }
                         </div>
                     </div>

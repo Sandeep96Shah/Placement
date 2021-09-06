@@ -291,7 +291,20 @@ Link{
   border-radius: 10px;
 }
 
-
+.external_jobs{
+  position: absolute;
+  left: 50px;
+  font-size: 30px;
+  cursor: pointer;
+  border: 1px solid gray;
+  padding: 3px 5px;
+  border-radius: 10px;
+  color: blue;
+}
+.external_jobs:hover{
+  color: white;
+  background-color: blue;
+}
 
 /* Student Component */
 

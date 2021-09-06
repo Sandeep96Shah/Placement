@@ -57,11 +57,13 @@ const StudentDetailPage = (props) => {
                     <div><p className="sdp_property">Interviews</p></div>
                     <div className="sdp_interview">
                         {
+                            detail.interviews.length > 0 ?
                             detail.interviews.map((interview) => <Interview 
                                                                     val={true} 
                                                                     name={interview.company_name} 
                                                                     result={interview.result} 
-                                                                    />)
+                                                                    />) :
+                            <h1>Please Add Interview</h1>
                         }
                     </div>
                     <p className="interview_form_p" onClick={ () => handleAdd() }>{add ? "Cancel" : "Add Interview" }</p>

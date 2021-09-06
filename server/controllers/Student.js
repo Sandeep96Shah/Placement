@@ -11,8 +11,15 @@ module.exports.create = async (req,res) => {
                 message:"Student already present!",
             })
         }
-        const student = await Student.create({
-            name:req.body.email,
+        //both are done
+        //make it optional like in 1 way only the student detail will be added and in another way both the student detail and the interview is added.
+        //todo later
+        //when the student is added with the interview detail then add the respective student into the added interview
+        let student;
+        if(req.body.company_name){
+        student = await Student.create({
+            //changes here
+            name:req.body.name,
             email:req.body.email,
             batch:req.body.batch,
             college:req.body.college,
@@ -38,7 +45,50 @@ module.exports.create = async (req,res) => {
                 }
             ]
         });
-        console.log("student is successfully created!", student);
+        const interviewCheck = await Interviews.findOne({company_name : req.body.company_name});
+            console.log("interciewcheck", interviewCheck);
+            if(!interviewCheck){
+                await Interviews.create({
+                    company_name:req.body.company_name,
+                    date_of_interview:req.body.date_of_interview,
+                    students:[
+                        {
+                            student:student._id,
+                            // result:req.body.result,
+                            result:"Didn't Attend",
+                        }
+                    ]
+                })
+                console.log("added in the interview section also!");
+            }else{
+                interviewCheck.students.push({
+                    student:student._id,
+                    // result:req.body.result,
+                    result:"Didn't Attend",
+                })
+                interviewCheck.save();
+                console.log("updated in the interview section also!");
+            }
+        }else{
+        student = await Student.create({
+            //changes here
+            name:req.body.name,
+            email:req.body.email,
+            batch:req.body.batch,
+            college:req.body.college,
+            status:req.body.status,
+            courses_scores:[
+                {
+                    dsa:req.body.dsa,
+                },
+                {
+                    webD:req.body.webD,
+                },
+                {
+                    react:req.body.react,
+                }
+            ],})
+        }
         return res.status(200).json({
             message:"Student Document Created Successfully!",
             student,

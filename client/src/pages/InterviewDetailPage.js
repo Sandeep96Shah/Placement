@@ -15,11 +15,13 @@ import Student from '../components/Student';
             <div className="idp_container">
                 <div className="idp_list">
                     {
+                        detail.length>0 ?
                         detail.map((student) => <Student 
                                                     val={true} 
                                                     name={student.student.name} 
                                                     result={student.result}  
-                                                    />)
+                                                    />) :
+                        <h1>Please Add Student</h1>
                     }
                 </div>
             </div>
